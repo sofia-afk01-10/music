@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Жанры музыки{% endblock title %}
+{% block content %}
+    <table class="table_all">
+        <thead>
+            <tr class="table">
+                <th class="table_min">№</th>
+                <th class="table_min">Название</th>
+                <th class="table_min">Длительность</th>
+                <th class="table_min">Жанр</th>
+                <th class="table_min"></th>
+                <th class="table_min"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in tracks %}
+                <tr>
+                    <td class="table_min">{{t.id}}</td>
+                    <td class="table_min">{{t.name}}</td>
+                    <td class="table_min">{{t.duretion}}</td>
+                    <td class="table_min">
+                        {% for g in t.genre.all %}
+                            {{g.name_en}}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td class="table_min"><a href="/edit_track/{{t.id}}">Редактировать</a></td>
+                    <td class="table_min"><a href="/deleteop_track/{{t.id}}">Удалить</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/add_track">Добавить трек</a>
+{% endblock content %}

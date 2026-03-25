@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+	<div id="header">
+		<div id="menu">
+			<a href="/" {% if page == 'main' %} class="active" {% endif %}>Главная</a>
+			<a href="/genres" {% if page == 'genres' %} class="active" {% endif %}>Жанры музыки</a>
+            <a href="/tracks" {% if page == 'tracks' %} class="active" {% endif %}>Треки</a>
+		</div>
+	</div>
+	<div id="content">
+        <div class="e">{% block content%}{% endblock content %}</div>
+    </div>
+	<div id="footer">
+		footer
+	</div>
+</div>
+</body>
+</html>

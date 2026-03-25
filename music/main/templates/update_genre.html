@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Изменение жанра{% endblock title %}
+{% block content %}
+    <h1>Форма для изменения жанра</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Сохранить" >
+    </form>
+{% endblock content %}
