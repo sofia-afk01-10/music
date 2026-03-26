@@ -2,11 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from .models import Genre, Track, Artist
-<<<<<<< HEAD
-from .forms import GenreForm, TrackForm
-=======
 from .forms import GenreForm, TrackForm, ArtistForm
->>>>>>> work
+
 
 # Create your views here.
 def main(request):
@@ -81,13 +78,7 @@ def add_track(request):
     else:
         trackform = TrackForm()
         return render(request, "add_track.html", {'form': trackform})
-<<<<<<< HEAD
-# исполнители  
-def artists(request):
-    # получим список исполнителей из базы
-    a = Artist.objects.all() 
-    return render(request, 'artists.html', {'artists': a, 'page': 'artists'})
-=======
+
     
 # исполнители
 def artists(request):
@@ -107,4 +98,4 @@ def add_artist(request):
     else:
         artistform = ArtistForm()
         return render(request, "add_artist.html", {'form':artistform})
->>>>>>> work
+
