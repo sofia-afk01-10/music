@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
-from .models import Genre, Track
+from .models import Genre, Track, Artist
 from .forms import GenreForm, TrackForm
 
 # Create your views here.
@@ -77,3 +77,8 @@ def add_track(request):
     else:
         trackform = TrackForm()
         return render(request, "add_track.html", {'form': trackform})
+# исполнители  
+def artists(request):
+    # получим список исполнителей из базы
+    a = Artist.objects.all() 
+    return render(request, 'artists.html', {'artists': a, 'page': 'artists'})
