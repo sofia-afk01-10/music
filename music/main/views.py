@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from .models import Genre, Track, Artist
-from .forms import GenreForm, TrackForm
+from .forms import GenreForm, TrackForm, ArtistForm
 
 # Create your views here.
 def main(request):
@@ -83,3 +83,16 @@ def artists(request):
     # получим список имполнителей из базы
     a = Artist.objects.all()
     return render(request, 'artists.html', {'artists': a})
+
+def add_artist(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        image = request.POST.get("image")
+        artist=Artist()
+        artist.name = name
+        artist.image = image
+        artist.save()
+        return redirect('/genres')
+    else:
+        artistform = ArtistForm()
+        return render(request, "add_artist.html", {'form':artistform})

@@ -18,5 +18,5 @@ urlpatterns = [
     path('add_track/', views.add_track),
     path('add_genre/', views.add_genre),
     path('artists/', views.artists),
-    
+    path('add_artist/', views.add_artist),
 ]
