@@ -17,5 +17,10 @@ urlpatterns = [
     path('deleteop_track/<int:id_track>',views.deleteop_track),
     path('add_track/', views.add_track),
     path('add_genre/', views.add_genre),
+<<<<<<< HEAD
     path('artists/', views.artists), 
+=======
+    path('artists/', views.artists),
+    path('add_artist/', views.add_artist),
+>>>>>>> work
 ]
