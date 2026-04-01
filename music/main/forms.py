@@ -14,11 +14,12 @@ class GenreForm(forms.ModelForm):
 class TrackForm(forms.ModelForm):
     class Meta:
         model = Track
-        fields = ['name', 'duretion', 'genre']
+        fields = ['name', 'duretion', 'genre', 'artist']
         labels = {
             'name': 'Название',
             'duretion': 'Длительность',
             'genre': 'Жанры',
+            'artist': 'Артист',
         }
 
 class ArtistForm(forms.ModelForm):

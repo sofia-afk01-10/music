@@ -15,7 +15,13 @@ def genre_music(request):
 
 def track_music(request):
     tracks = Track.objects.all() 
-    return render(request, 'track.html', {'tracks': tracks, 'page': 'tracks'})
+    artists = Artist.objects.all()
+    artist = None
+    if request.method == "POST":
+        id_artist = request.POST.get('artist')
+        artist = Artist.objects.get(id=id_artist)
+        tracks = Track.objects.filter(artist=artist)
+    return render(request, 'track.html', {'tracks': tracks, 'artists':artists, 'current_artist': artist, 'page': 'tracks'})
 
 def edit_genre(request, id_genre):
     g = Genre.objects.get(id=id_genre)
